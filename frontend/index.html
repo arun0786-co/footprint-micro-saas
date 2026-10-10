@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>footprint check - what does the internet know about you?</title>
+    <meta name="description" content="free check: data leaks with your email, accounts with your username, and if your password is leaked." />
+  </head>
+  <body>
+    <main class="wrap">
+      <header>
+        <h1>What does the internet know about you?</h1>
+        <p class="sub">Check if your email was in a data leak, where your username shows up, and if your password is out there. Free, and we dont keep your data.</p>
+      </header>
+
+      <section class="card" id="step_email">
+        <h2>1. your email</h2>
+        <p class="hint">we send a 6 digit code so only the owner of an email can check it.</p>
+        <form id="email_form" class="row">
+          <input id="email" type="email" placeholder="you@example.com" required autocomplete="email" />
+          <button type="submit">send code</button>
+        </form>
+      </section>
+
+      <section class="card hidden" id="step_code">
+        <h2>2. enter the code</h2>
+        <p class="hint" id="code_hint">check your inbox (and spam folder).</p>
+        <form id="code_form" class="row">
+          <input id="code" inputmode="numeric" maxlength="6" placeholder="123456" required autocomplete="one-time-code" />
+          <button type="submit">verify</button>
+        </form>
+      </section>
+
+      <section class="card hidden" id="step_scan">
+        <h2>3. your usernames (optional)</h2>
+        <p class="hint">up to 3, like the name you use on github or instagram. comma between them.</p>
+        <form id="scan_form">
+          <input id="names" placeholder="arun_k, arunk99" />
+          <label class="check"><input type="checkbox" id="mine" /> these are my own usernames</label>
+          <button type="submit">scan now</button>
+        </form>
+      </section>
+
+      <p id="msg" class="msg hidden"></p>
+
+      <section id="results" class="hidden"></section>
+
+      <section class="card">
+        <h2>is my password leaked?</h2>
+        <p class="hint">your password never leaves this page. we only send the first 5 characters of its hash
+          (a scrambled version) to haveibeenpwned.com and compare the rest here.</p>
+        <form id="pass_form" class="row">
+          <input id="pass" type="password" placeholder="type a password" autocomplete="off" />
+          <button type="submit">check</button>
+        </form>
+        <p id="pass_out" class="msg hidden"></p>
+      </section>
+
+      <section class="card hidden" id="pro">
+        <h2>footprint pro</h2>
+        <p>we check your email every week and mail you the same day it shows up in a new data leak, with what to do. <b id="pro_price"></b></p>
+        <a id="pro_link" class="btn" target="_blank" rel="noopener">get pro</a>
+      </section>
+
+      <footer>
+        <p>we dont store your email, usernames or results. codes live in memory for 10 minutes and are gone.</p>
+        <p>breach data from <a href="https://xposedornot.com" target="_blank" rel="noopener">XposedOrNot</a> /
+          <a href="https://haveibeenpwned.com" target="_blank" rel="noopener">Have I Been Pwned</a>. password check by
+          <a href="https://haveibeenpwned.com/Passwords" target="_blank" rel="noopener">Pwned Passwords</a>.</p>
+      </footer>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
